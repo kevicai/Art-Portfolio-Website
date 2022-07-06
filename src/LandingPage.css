@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.landing-cover {
+    position: relative;
+    width: 96vw;
+    height: 97vh;
+    margin: 0 auto;
+
+    background: no-repeat center center fixed;
+    background-size: cover;
+}
+
+.profile-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 4vw;
+    margin-bottom: -27vw;
+}
+
+.name-header {
+    background-image: url("./images/name-header.svg");
+    background: center solid;
+    background-repeat: no-repeat;
+    background-size: 13vw;
+    
+    width: 13vw;
+    height: 51vw;
+}
+
+.profile-pic {
+    height: 20vw;
+    width: 20vw;
+    border-radius: 20vw;
+    background-size: 20vw;
+    background: center solid;
+    background-repeat: no-repeat;
+}
+
+.profile-section {
+    width: fit-content;
+    height: fit-content;
+    margin-left: -2vw;
+    margin-top: 12vw;
+}
+
+.artwork {
+    background: center no-repeat solid;
+    width: 25vw;
+    height: 36vw;
+    background-size: 25vw;
+}
+
+.artwork-row {
+    display: flex;
+}
