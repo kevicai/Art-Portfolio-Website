@@ -1,0 +1,37 @@
+.profile-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 4vw;
+    margin-bottom: -30vw;
+}
+
+.name-header {
+    background-image: url("../images/name-header.svg");
+    background: center solid;
+    background-repeat: no-repeat;
+    background-size: 12vw;
+    
+    width: 12vw;
+    height: 51vw;
+}
+
+.profile-pic {
+    height: 18vw;
+    width: 18vw;
+    border-radius: 18vw;
+    background-size: 18vw;
+    background: center solid;
+    background-repeat: no-repeat;
+}
+
+.profile-section {
+    width: fit-content;
+    height: fit-content;
+    margin-left: -1vw;
+    margin-top: 12vw;
+}
