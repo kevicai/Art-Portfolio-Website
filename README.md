@@ -1,2 +1,2 @@
 # A portfolio website to display my artworks
-[Link](https://kevicai.github.io/art/)
+Currently only built for horizontal screens [Link](https://kevicai.github.io/art/)
