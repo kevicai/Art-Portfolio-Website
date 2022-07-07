@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import "./ProfileContainer.css";
+import ProfileAbout from './ProfileAbout';
 
 export default function ProfileContainter(props) {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isFollow, setIsFollow] = useState(false);
 
     const { viewHeight, viewWidth } = useWindowDimensions();
-
 
     const handleScroll = () => {
       const position = window.pageYOffset;
@@ -20,22 +20,19 @@ export default function ProfileContainter(props) {
         return () => {
           window.removeEventListener("scroll", handleScroll);
         };
-      }, []);
+    }, []);
       
-    if(scrollPosition + (viewHeight * 0.20) > viewHeight && !isFollow) {
+    if(scrollPosition + (viewWidth * 0.11) > viewHeight && !isFollow) {
         setIsFollow(true);
     }
-    else if (scrollPosition + (viewHeight * 0.20)<= viewHeight && isFollow) {
+    else if (scrollPosition + (viewWidth * 0.11)<= viewHeight && isFollow) {
         setIsFollow(false);
     }
     
     return (
         <div className={`profile-container ${isFollow && "follow"}`}  onScroll={handleScroll}>
             <div className="name-header"></div>
-            <div className="profile-section">
-                <div className="profile-pic" style={{backgroundImage: `url(${props.profilePic})`}}></div>
-                <div className="profile-dropdown"></div>
-            </div>
+            <ProfileAbout profilePic={props.profilePic} aboutTexts={props.aboutTexts} contacts={props.contacts}/>
         </div>
     );
 }

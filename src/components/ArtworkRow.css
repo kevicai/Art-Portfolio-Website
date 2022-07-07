@@ -11,7 +11,7 @@
     padding-top: 3vw;
     justify-content: space-between;
     align-items: center;
-    margin-left: 10vw;
+    margin-left: 15vw;
 }
 
 .artwork-container {
@@ -22,13 +22,17 @@
     overflow: hidden
 }
 
+.artwork-container:hover {
+    cursor: pointer;
+}
+
 .artwork-hover {
     position: absolute;
     width: 20vw;
     height: 20vw;
     background: rgb(255, 255, 255);
     
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .regular-font {
@@ -39,6 +43,6 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s;
 }
 

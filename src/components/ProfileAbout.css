@@ -1,0 +1,78 @@
+.profile-section {
+    position: relative;
+    margin-left: -1vw;
+    margin-top: 12vw;
+}
+
+.profile-pic {
+    position:relative;
+    height: 18vw;
+    width: 18vw;
+    border-radius: 18vw;
+    background-size: 18vw;
+    background: center solid;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.5s ease-out;
+
+    z-index: 2;
+}
+
+.profile-pic:hover {
+    box-shadow: 0px 0px 2vw rgb(231, 131, 148);
+    background: center solid;
+    transition: box-shadow 0.5s ease-out;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    position: absolute;
+    display: flex;
+    top: 0;
+    margin-top: 9.6vw;
+    width: 18vw;
+    background-size: 18vw;
+    background-repeat: no-repeat;
+
+    justify-content: center;
+    z-index: 1;
+}
+
+.profile-dropdown:hover {
+    cursor: pointer;
+}
+
+.light-font {
+    position: absolute;
+    margin-top: 8.5vw;
+    font-size: 1.3vw;
+    color: white;
+
+    width: 15vw;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    width: 0.2vw;
+    height: 0.2vw;
+
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.up {
+    margin-top: 28vw;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+  
+.down {
+    margin-top: 9.8vw;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.dropdown-arrow:hover {
+    cursor: pointer;
+}

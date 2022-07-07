@@ -27,19 +27,3 @@
     width: 12vw;
     height: 51vw;
 }
-
-.profile-pic {
-    height: 18vw;
-    width: 18vw;
-    border-radius: 18vw;
-    background-size: 18vw;
-    background: center solid;
-    background-repeat: no-repeat;
-}
-
-.profile-section {
-    width: fit-content;
-    height: fit-content;
-    margin-left: -1vw;
-    margin-top: 12vw;
-}
