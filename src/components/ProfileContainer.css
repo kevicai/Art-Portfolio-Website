@@ -2,12 +2,20 @@
     display: flex;
     width: fit-content;
     height: fit-content;
-
     position: absolute;
     right: 0;
     bottom: 0;
     margin-right: 4vw;
     margin-bottom: -30vw;
+
+}
+
+.follow {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-right: 4vw;
+    margin-top:-10vw;
 }
 
 .name-header {

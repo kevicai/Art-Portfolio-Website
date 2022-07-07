@@ -1,16 +1,36 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import "./ProfileContainer.css";
 
 export default function ProfileContainter(props) {
-    const handleScroll = (e) => {
-        const page2Reached = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-        if (page2Reached) {
-            console.log("Bottom")
-        }
-    }
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [isFollow, setIsFollow] = useState(false);
 
+    const { viewHeight, viewWidth } = useWindowDimensions();
+
+
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
+      
+    if(scrollPosition + (viewHeight * 0.20) > viewHeight && !isFollow) {
+        setIsFollow(true);
+    }
+    else if (scrollPosition + (viewHeight * 0.20)<= viewHeight && isFollow) {
+        setIsFollow(false);
+    }
+    
     return (
-        <div className="profile-container" onScroll={handleScroll}>
+        <div className={`profile-container ${isFollow && "follow"}`}  onScroll={handleScroll}>
             <div className="name-header"></div>
             <div className="profile-section">
                 <div className="profile-pic" style={{backgroundImage: `url(${props.profilePic})`}}></div>
@@ -18,4 +38,27 @@ export default function ProfileContainter(props) {
             </div>
         </div>
     );
+}
+
+function getWindowDimensions() {
+    const { innerWidth: viewWidth, innerHeight: viewHeight } = window;
+    return {
+        viewWidth,
+        viewHeight
+    };
+}
+  
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return windowDimensions;
 }

@@ -26,7 +26,7 @@ export default function ArtworkRow (props) {
       <div className='artwork-container' onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}> 
         <img className="artwork" src={props.image} alt="An Artwork" />
         <div className="artwork-hover" style={{opacity: isHovering ? 0.8 : 0}}></div>
-        <div className="regular-font" style={{opacity: isHovering ? 0.8 : 0}}> {props.hoverText}</div>
+        <div className="regular-font" style={{opacity: isHovering ? 1 : 0}}> {props.hoverText}</div>
       </div>
   
     )
