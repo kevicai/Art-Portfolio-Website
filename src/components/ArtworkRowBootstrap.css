@@ -1,0 +1,51 @@
+.artwork {
+    background: center solid;
+    background-repeat: no-repeat;
+    width: 23vw;
+    min-width: 400px;
+}
+
+.artwork-row-container {
+    display: relative;
+    width: fit-content;
+    padding-top: 1vw;
+}
+
+.artwork-card-container {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.artwork-card-container:hover {
+    cursor: pointer;
+}
+
+.artwork-hover {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    background: rgb(255, 255, 255);
+    
+    transition: opacity 0.3s ease-in-out;
+}
+
+.regular-font {
+    position: absolute;
+    font-size: 3vw;
+    background: linear-gradient(110.69deg, #FFA8A8 -1.99%, #616A8B 102.27%, #919CC2 102.27%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    transition: opacity 0.3s;
+}
+
+@media screen and (min-width: 1000px) {
+    .artwork-row-container {
+        margin-left: 12vw;
+    }
+}

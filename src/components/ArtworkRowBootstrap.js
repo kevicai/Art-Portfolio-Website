@@ -1,26 +1,34 @@
 import { useState } from "react";
-import "./ArtworkRow.css";
+import "./ArtworkRowBootstrap.css";
 import "./Fonts.css";
 import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function ArtworkRow(props) {
   return (
-    <div className="artwork-row">
-      <Artwork
-        image={props.imgLeft}
-        hoverText={props.hoverText}
-        navigate={props.navigate}
-      />
-      <Artwork
-        image={props.imgRight}
-        hoverText={props.hoverText}
-        navigate={props.navigate}
-      />
-    </div>
+    <Container className="artwork-row-container container-sm">
+      <Row>
+        <Col xs={12} md={6}>
+          <ArtworkCard
+            image={props.imgLeft}
+            hoverText={props.hoverText}
+            navigate={props.navigate}
+          />
+        </Col>
+
+        <Col xs={12} md={6}>
+          <ArtworkCard
+            image={props.imgRight}
+            hoverText={props.hoverText}
+            navigate={props.navigate}
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
-const Artwork = (props) => {
+const ArtworkCard = (props) => {
   const navigate = useNavigate();
   const [isHovering, setIsHovering] = useState(false);
 
@@ -34,7 +42,7 @@ const Artwork = (props) => {
 
   return (
     <div
-      className="artwork-container"
+      className="artwork-card-container"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       onClick={() => navigate(props.navigate)}
