@@ -49,3 +49,11 @@
         margin-left: 12vw;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .artwork-row-container {
+        margin-left: 0vw;
+        left: 0;
+        max-width: 100vw;
+    }
+}

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./LandingPage.css";
 
-import ProfileConatiner from "../components/ProfileContainter";
-import ArtworkRow from "../components/ArtworkRow";
+import ProfileContainer from "../components/ProfileContainter";
 import ArtworkRowBootstrap from "../components/ArtworkRowBootstrap"
 
 import landingCover from "../images/landing-cover.png";
@@ -21,7 +20,7 @@ class LandingPage extends Component {
           style={{ backgroundImage: `url(${landingCover})` }}
         ></div>
 
-        <ProfileConatiner
+        <ProfileContainer
           profilePic={profilePic}
           aboutTexts={
             "Hi I'm Cakee/Kevin. I'm a computer science student who draws for fun"

@@ -26,11 +26,23 @@
 
   width: 12vw;
   height: 51vw;
+
+  border: 1px;
 }
 
 @media screen and (max-width: 750px) {
   .profile-container {
     margin-right: 4vw;
-    margin-bottom: -8vw;
+    margin-bottom: 80vw;
+  }
+
+  .name-header {
+    background-image: url("../images/name-header.svg");
+    background: center solid;
+    background-repeat: no-repeat;
+    background-size: 80px;
+
+    width: 80px;
+    height: 280px;
   }
 }

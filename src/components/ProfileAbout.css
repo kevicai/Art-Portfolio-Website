@@ -90,16 +90,10 @@
 
 @media screen and (max-width: 750px) {
   .profile-dropdown {
-    position: absolute;
-    display: flex;
-    top: 0;
     margin-top: 85px;
     width: 150px;
     background-size: 150px;
     background-repeat: no-repeat;
-
-    justify-content: center;
-    z-index: 1;
   }
 
   .light-font {

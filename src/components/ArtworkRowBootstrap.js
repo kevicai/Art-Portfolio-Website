@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function ArtworkRow(props) {
   return (
-    <Container className="artwork-row-container container-sm">
+    <Container className="artwork-row-container">
       <Row>
         <Col xs={12} md={6}>
           <ArtworkCard
@@ -47,7 +47,7 @@ const ArtworkCard = (props) => {
       onMouseOut={handleMouseOut}
       onClick={() => navigate(props.navigate)}
     >
-      <img className="artwork" src={props.image} alt="An Artwork" />
+      <img className="img-fluid artwork" src={props.image} alt="An Artwork" />
       <div
         className="artwork-hover"
         style={{ opacity: isHovering ? 0.8 : 0 }}
