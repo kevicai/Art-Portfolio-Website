@@ -8,8 +8,6 @@
   position: relative;
   height: 18vw;
   width: 18vw;
-  min-width: 150px;
-  min-height: 150px;
   border-radius: 18vw;
   background-size: cover;
   background: center solid;
@@ -96,6 +94,11 @@
     background-repeat: no-repeat;
   }
 
+  .profile-pic {
+    min-width: 150px;
+    min-height: 150px;
+  }
+  
   .light-font {
     position: absolute;
     margin-top: 63px;

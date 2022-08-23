@@ -4,7 +4,7 @@ const User = require("../models/user");
 require("dotenv").config();
 
 blogsRouter.get("/", async (request, response) => {
-  const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 }); // populate user ids into user objects
+  const blogs = await Blog.find({}).populate("user", { email: 1, name: 1 }); // populate user ids into user objects
 
   if (blogs) {
     response.json(blogs);
@@ -75,7 +75,7 @@ blogsRouter.put("/:id", async (request, response) => {
   if (blog.user.toString() === request.user.id.toString()) {
     const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, {
       new: true,
-    }).populate("user", { username: 1, name: 1 });
+    }).populate("user", { email: 1, name: 1 });
 
     updatedBlog
       ? response.status(200).json(updatedBlog.toJSON())

@@ -52,7 +52,7 @@ const ArtworkCard = (props) => {
         className="artwork-hover"
         style={{ opacity: isHovering ? 0.8 : 0 }}
       ></div>
-      <div className="regular-font" style={{ opacity: isHovering ? 1 : 0 }}>
+      <div className="regular-font artworkrow-font" style={{ opacity: isHovering ? 1 : 0 }}>
         {" "}
         {props.hoverText}
       </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./LandingPage.css";
 
 import ProfileContainer from "../components/ProfileContainter";
-import ArtworkRowBootstrap from "../components/ArtworkRowBootstrap"
+import ArtworkRowBootstrap from "../components/ArtworkRowBootstrap";
 
 import landingCover from "../images/landing-cover.png";
 import profilePic from "../images/profile-pic.png";
@@ -18,7 +18,8 @@ class LandingPage extends Component {
         <div
           className="landing-cover"
           style={{ backgroundImage: `url(${landingCover})` }}
-        ></div>
+        >
+        </div>
 
         <ProfileContainer
           profilePic={profilePic}
@@ -28,18 +29,18 @@ class LandingPage extends Component {
           contacts={"cakeeiv@gmail.com\nDiscord: cakee#6779"}
         />
 
-        <div className="artworks-page">
-          <ArtworkRowBootstrap
-            imgLeft={work1}
-            imgRight={work2}
-            hoverText="Artworks"
-            navigate="/art/artworks"
-          />
+        <div className="artworks-section">
           <ArtworkRowBootstrap
             imgLeft={comm1}
             imgRight={comm2}
             hoverText="Commissions"
-            navigate="/art/comms"
+            navigate="/comms"
+          />
+          <ArtworkRowBootstrap
+            imgLeft={work1}
+            imgRight={work2}
+            hoverText="Artworks"
+            navigate="/artworks"
           />
         </div>
       </div>

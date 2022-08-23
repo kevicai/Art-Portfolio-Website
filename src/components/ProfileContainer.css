@@ -33,7 +33,7 @@
 @media screen and (max-width: 750px) {
   .profile-container {
     margin-right: 4vw;
-    margin-bottom: 80vw;
+    margin-bottom: -30vw;
   }
 
   .name-header {

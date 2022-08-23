@@ -33,7 +33,7 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.regular-font {
+.artworkrow-font {
     position: absolute;
     font-size: 3vw;
     background: linear-gradient(110.69deg, #FFA8A8 -1.99%, #616A8B 102.27%, #919CC2 102.27%);
