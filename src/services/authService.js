@@ -47,19 +47,26 @@ const login = async (credentials) => {
   }
 };
 
+const getAuthHeader = () => {
+  const user = JSON.parse(localStorage.getItem("loggedUser"));
+
+  if (user && user.token) {
+    return { Authorization: `bearer ${user.token}` };
+  } else {
+    return {};
+  }
+};
+
 const checkLogin = () => {
   const loggedUserJSON = window.localStorage.getItem("loggedUser");
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON);
 
-    userService.setToken(user.token);
-    blogsService.setToken(user.token);
-
     // check token expiration
     // console.log(jwt_decode(user.token));
     const exp = jwt_decode(user.token).exp;
 
-    console.log("token expire in " + (exp * 1000 - Date.now()));
+    // console.log("token expire in " + (exp * 1000 - Date.now()));
     if (Date.now() >= exp * 1000) {
       window.localStorage.clear();
       return false;
@@ -71,7 +78,22 @@ const checkLogin = () => {
   }
 };
 
+const getCurrUserId = () => {
+  return JSON.parse(localStorage.getItem("loggedUser")).userId;
+};
+
+const logout = () => {
+  localStorage.removeItem("loggedUser");
+};
+
 // eslint-disable-next-line
-const authService = { signup, login, checkLogin };
+const authService = {
+  signup,
+  login,
+  checkLogin,
+  getAuthHeader,
+  logout,
+  getCurrUserId,
+};
 
 export default authService;

@@ -1,9 +1,3 @@
-let token = null;
-
-const setToken = (newToken) => {
-  token = `bearer ${newToken}`;
-};
-
-const userService = { setToken };
+const userService = {};
 
 export default userService;

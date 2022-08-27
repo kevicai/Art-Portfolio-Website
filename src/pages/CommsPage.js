@@ -1,43 +1,51 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import FilterBar from "../components/CommsPage/FilterBar";
 import RequestCard from "../components/CommsPage/RequestCard";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CommsPage.css";
+import blogsService from "../services/blogsService";
 
 export default function CommsPage() {
-  const [searchInput, setSearchInput] = useState("123");
+  const [searchInput, setSearchInput] = useState("");
   const [commType, setCommType] = useState([]);
   const [commStage, setCommStage] = useState([]);
   const [commSort, setCommSort] = useState([]);
   const [requests, setRequests] = useState([]);
 
-  const sampleRequests = [
-    {
-      author: "kevicai",
-      content:
-        "Bla bla orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
-      stage: 0,
-      type: "Profile Picture",
-      reference: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-    {
-      author: "kevicai",
-      content:
-        "Bla bla orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
-      stage: 1,
-      type: "Profile Picture",
-      reference: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-    {
-      author: "kevicai",
-      content:
-        "Bla bla orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
-      stage: 2,
-      type: "Profile Picture",
-      reference: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-  ];
+  useEffect(() => {
+    // TODO:  handle sort by
+    let orQueryType = [...commType.map((val) => ({ type: val }))];
+    if (orQueryType.length === 0) {
+      orQueryType = [{}];
+    }
+    let orQueryStage = [
+      ...commStage.map((txt) => {
+        switch (txt) {
+          case "New":
+            return { stage: 0 };
+          case "In Progress":
+            return { stage: 1 };
+          default: // case "Completed"
+            return { stage: 2 };
+        }
+      }),
+    ];
+    if (orQueryStage.length === 0) {
+      orQueryStage = [{}];
+    }
+
+    console.log([{ $or: orQueryType }, { $or: orQueryStage }]);
+
+    const fetchBlogs = async () => {
+      const blogs = await blogsService.getAll({
+        filterCond: { $and: [{ $or: orQueryType }, { $or: orQueryStage }] },
+      });
+
+      setRequests(blogs);
+    };
+
+    fetchBlogs();
+  }, [commType, commStage]);
 
   return (
     <div>
@@ -50,7 +58,7 @@ export default function CommsPage() {
       />
       <Container className="request-section">
         <Row>
-          {sampleRequests.map((request, index) => (
+          {requests.map((request, index) => (
             <Col xs={12} md={6} lg={5} xl={4} xxl={3} key={index}>
               <RequestCard request={request} />
             </Col>

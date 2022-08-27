@@ -1,42 +1,40 @@
 import axios from "axios";
+import authService from "./authService";
+
 const baseUrl = "/api/blogs";
 
-let token = null;
-
-const setToken = (newToken) => {
-  token = `bearer ${newToken}`;
-};
-
-const getAll = async () => {
-  const request = await axios.get(baseUrl);
+const getAll = async (queryParams) => {
+  const request = await axios.get(baseUrl, {
+    params: queryParams,
+  });
   return request.data;
 };
 
-const create = async (newObject) => {
-  const config = {
-    headers: { Authorization: token },
-  };
+const create = async (blogObject) => {
+  blogObject.user = authService.getCurrUserId();
 
-  const response = await axios.post(baseUrl, newObject, config);
+  const response = await axios.post(baseUrl, blogObject);
   return response.data;
 };
 
 const update = async (id, newObject) => {
-  const response = await axios.put(`${baseUrl}/${id}`, newObject);
+  const response = await axios.put(
+    `${baseUrl}/${id}`,
+    newObject,
+    authService.getAuthHeader()
+  );
   return response.data;
 };
 
 const remove = async (id) => {
-  const config = {
-    headers: { Authorization: token },
-  };
-
-  const response = await axios.delete(`${baseUrl}/${id}`, config);
+  const response = await axios.delete(
+    `${baseUrl}/${id}`,
+    authService.getAuthHeader()
+  );
   return response.data;
 };
 
 const blogsService = {
-  setToken,
   getAll,
   create,
   update,

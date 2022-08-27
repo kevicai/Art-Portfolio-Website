@@ -4,7 +4,14 @@ const User = require("../models/user");
 require("dotenv").config();
 
 blogsRouter.get("/", async (request, response) => {
-  const blogs = await Blog.find({}).populate("user", { email: 1, name: 1 }); // populate user ids into user objects
+  const blogs = await Blog.find(
+    request.query.filterCond === undefined
+      ? {}
+      : JSON.parse(request.query.filterCond)
+  )
+    .sort(request.query.sortCond)
+    .limit(request.query.numLimit)
+    .populate("user", { email: 1, name: 1 }); // populate user ids into user objects
 
   if (blogs) {
     response.json(blogs);
@@ -27,13 +34,13 @@ blogsRouter.post("/", async (request, response) => {
   const body = request.body;
   const user = request.user;
 
-  // set default likes to 0 if not specified
+  if (!(user && body)) {
+    response.status(412).end();
+  }
+
   const blog = new Blog({
-    title: body.title,
-    author: user.name,
-    url: body.url,
-    likes: body.likes ? body.likes : 0,
-    user: user._id,
+    ...body,
+    user: user.id,
   });
 
   const savedBlog = await blog.save();
