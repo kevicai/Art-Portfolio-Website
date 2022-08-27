@@ -1,0 +1,27 @@
+.request-section {
+  margin: auto;
+  overflow-y: scroll;
+  height: 80vh;
+  margin-top: 30px;
+}
+
+::-webkit-scrollbar {
+  background-color: white;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2dbf0;
+}
+
+@media screen and (min-width: 1000px) {
+  .request-section {
+    margin-left: 130px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .request-section {
+    margin: auto;
+  }
+}

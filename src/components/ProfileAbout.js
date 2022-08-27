@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./ProfileAbout.css";
 import "./Fonts.css";
 
-import dropdownClose from "../images/dropdown-close.svg";
-import dropdownOpen from "../images/dropdown-open.svg";
+import dropdownClose from "../icons/dropdown-close.svg";
+import dropdownOpen from "../icons/dropdown-open.svg";
 
 export default function ProfileAbout(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +19,14 @@ export default function ProfileAbout(props) {
     minHeight: "250px"
   };
 
-  const handlClick = () => setIsOpen(!isOpen);
+  const handleClick = () => setIsOpen(!isOpen);
 
   return (
     <div className="profile-section">
       {isOpen ? (
         <div
           className="profile-dropdown profile-dropdown-open"
-          onClick={handlClick}
+          onClick={handleClick}
           style={styleOpen}
         >
           <p className="light-font expand-about-info">
@@ -35,22 +35,22 @@ export default function ProfileAbout(props) {
           <div className="light-font expand-contacts">
             Contacts: {props.contacts}
           </div>
-          <div className="dropdown-arrow up" onClick={handlClick}></div>
+          <div className="dropdown-arrow up" onClick={handleClick}></div>
         </div>
       ) : (
         <div
           className="profile-dropdown"
-          onClick={handlClick}
+          onClick={handleClick}
           style={styleClose}
         >
           <p className="light-font">about</p>
-          <div className="dropdown-arrow down" onClick={handlClick}></div>
+          <div className="dropdown-arrow down" onClick={handleClick}></div>
         </div>
       )}
 
       <div
         className="profile-pic"
-        onClick={handlClick}
+        onClick={handleClick}
         style={{ backgroundImage: `url(${props.profilePic})` }}
       ></div>
     </div>

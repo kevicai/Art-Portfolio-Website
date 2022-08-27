@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
-  title: { type: String, required: true },
   author: String,
-  comment: { type: String, required: true },
-  progress: { type: String, required: true },
+  content: String,
+  type: String,
+  stage: Number,
+  reference: String,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

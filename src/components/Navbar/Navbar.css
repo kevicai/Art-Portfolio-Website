@@ -1,22 +1,21 @@
 .navbar {
   position: fixed;
   height: 100vh;
-  left:-4.5vw;
-  width: 20vw;
+  left: -40px;
+  width: 250px;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 1vw;
 }
 
 .nav-links {
-  line-height: 2vw;
+  line-height: 25px;
   vertical-align: middle;
-  font-size: 1vw;
+  font-size: 15px;
   font-weight: light;
-  margin: 1vw 0;
+  margin: 15px 0;
   color: rgb(122, 127, 197);
   text-decoration: none;
 
@@ -24,10 +23,16 @@
 }
 
 .nav-links:hover {
-  margin-left: 0.5vw;
+  margin-left: 10px;
   color: rgb(219, 114, 114);
 }
 
 .nav-login:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar {
+    visibility: hidden;
+  }
 }

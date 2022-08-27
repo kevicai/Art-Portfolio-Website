@@ -19,7 +19,7 @@
 }
 
 .name-header {
-  background-image: url("../images/name-header.svg");
+  background-image: url("../icons/name-header.svg");
   background: center solid;
   background-repeat: no-repeat;
   background-size: 12vw;
@@ -37,7 +37,7 @@
   }
 
   .name-header {
-    background-image: url("../images/name-header.svg");
+    background-image: url("../icons/name-header.svg");
     background: center solid;
     background-repeat: no-repeat;
     background-size: 80px;

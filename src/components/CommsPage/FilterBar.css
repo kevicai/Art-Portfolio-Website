@@ -1,0 +1,46 @@
+.filter-container {
+  position: relative;
+  width: 100vw;
+  height: 120px;
+  background: cover;
+  background-size: 100% auto;
+  padding-top: 20px;
+}
+
+.search-bar {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  position: absolute;
+  margin-right: 270px;
+  color: white;
+  width: 25px;
+  height: 25px;
+}
+
+.search-bar-input {
+  position: relative;
+  width: 300px;
+  height: fit-content;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px white solid;
+  color: white;
+  font-size: 18px;
+  transition: outline 0.3s;
+}
+
+.search-bar-input:focus {
+  outline: 1px white solid;
+  box-shadow: 3px 3px rgba(0,0,0,0.3);
+}
+
+.dropdown-row {
+  display: flex;
+  justify-content: center;
+}

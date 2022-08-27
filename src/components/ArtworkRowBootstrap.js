@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function ArtworkRow(props) {
   return (
-    <Container className="artwork-row-container">
+    <Container className="artwork-row-container" fluid>
       <Row>
         <Col xs={12} md={6}>
           <ArtworkCard

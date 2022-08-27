@@ -131,7 +131,7 @@
   }
 
   .profile-dropdown-open {
-    background-image: url("../images/dropdown-open.svg");
+    background-image: url("../icons/dropdown-open.svg");
     height: 500px;
   }
 }

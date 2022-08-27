@@ -1,0 +1,55 @@
+.request-card {
+  margin: 15px auto;
+  position: relative;
+  padding: 40px 25px;
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(
+      143.02deg,
+      #efefef 1.41%,
+      #f1f1f1 9.18%,
+      #e0edff 19.02%,
+      #f3f3f3 34.56%,
+      #d8d8d8 75.9%,
+      #cfd9e8 87.91%,
+      #d6d6d6 100.86%
+    )
+    no-repeat;
+
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.stage-marker-tag {
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  height: 25px;
+  width: 20px;
+}
+
+.stage-marker-txt {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+}
+
+.request-title {
+  color: #7b7b7b;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.request-content {
+  height: 130px;
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 16px;
+  color: #7b7b7b;
+}
+
+.request-link {
+  text-decoration: none;
+  color: #8598ff;
+  font-size: 13px;
+}

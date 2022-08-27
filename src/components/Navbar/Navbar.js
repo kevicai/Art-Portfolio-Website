@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
+import OutsideClickHandler from "react-outside-click-handler";
 import "./Navbar.css";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import authService from "../../services/authService";
 
-// import navBackground from "../../images/nav-background.svg";
-// import navIcon from "../../images/nav-icon.svg";
+// import navBackground from "../../icons/nav-background.svg";
+// import navIcon from "../../icons/nav-icon.svg";
 
 // TODO: handle phone screen, use the above imports
 export default function NavBar() {
   const [isLogin, setIsLogin] = useState(false);
   const [isLoginMenuClick, setIsLoginMenuClick] = useState(false);
-  const [loginFormStyle, setLoginFormStyle] = useState({ marginLeft: "-10vw" });
+  const [loginFormStyle, setLoginFormStyle] = useState({
+    marginLeft: "-150px",
+  });
   const [isSignupMenuClick, setIsSignupMenuClick] = useState(false);
   const [signupFormStyle, setSignupFormStyle] = useState({
-    marginLeft: "-10vw",
+    marginLeft: "-150px",
   });
 
   useEffect(() => {
@@ -35,17 +38,17 @@ export default function NavBar() {
 
   useEffect(() => {
     if (isLoginMenuClick) {
-      setLoginFormStyle({ marginLeft: "3vw" });
+      setLoginFormStyle({ marginLeft: "30px" });
     } else {
-      setLoginFormStyle({ marginLeft: "-10vw" });
+      setLoginFormStyle({ marginLeft: "-150px" });
     }
   }, [isLoginMenuClick]);
 
   useEffect(() => {
     if (isSignupMenuClick) {
-      setSignupFormStyle({ marginLeft: "3vw" });
+      setSignupFormStyle({ marginLeft: "30px" });
     } else {
-      setSignupFormStyle({ marginLeft: "-10vw" });
+      setSignupFormStyle({ marginLeft: "-150px" });
     }
   }, [isSignupMenuClick]);
 
@@ -59,18 +62,31 @@ export default function NavBar() {
     <nav className="navbar regular-font">
       {!isLogin ? (
         <>
-          <div className="nav-login nav-links" onClick={onLoginMenuClick}>
-            Login
-          </div>
-          {isLoginMenuClick && (
-            <LoginForm checkLogin={checkLogin} marginLeft={loginFormStyle} />
-          )}
-          <div className="nav-login nav-links" onClick={onSignupMenuClick}>
-            Sign Up
-          </div>
-          {isSignupMenuClick && (
-            <SignupForm checkLogin={checkLogin} marginLeft={signupFormStyle} />
-          )}
+          <OutsideClickHandler
+            onOutsideClick={() => setIsLoginMenuClick(false)}
+          >
+            <div className="nav-login nav-links" onClick={onLoginMenuClick}>
+              Login
+            </div>
+
+            {isLoginMenuClick && (
+              <LoginForm checkLogin={checkLogin} marginLeft={loginFormStyle} />
+            )}
+          </OutsideClickHandler>
+
+          <OutsideClickHandler
+            onOutsideClick={() => setIsSignupMenuClick(false)}
+          >
+            <div className="nav-login nav-links" onClick={onSignupMenuClick}>
+              Sign Up
+            </div>
+            {isSignupMenuClick && (
+              <SignupForm
+                checkLogin={checkLogin}
+                marginLeft={signupFormStyle}
+              />
+            )}
+          </OutsideClickHandler>
         </>
       ) : (
         <Link className="nav-links" to="/user">
@@ -82,7 +98,6 @@ export default function NavBar() {
         <Link key={index} to={item.path} className={item.cName}>
           {item.icon}
           <div className="navlink-space"></div>
-
           <span>{item.title}</span>
         </Link>
       ))}
