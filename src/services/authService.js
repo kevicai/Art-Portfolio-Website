@@ -1,7 +1,5 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import blogsService from "./blogsService";
-import userService from "./userService";
 
 const baseUrl = "/api";
 
@@ -11,11 +9,8 @@ const signup = async (credentials) => {
 
     if (response.data) {
       const user = response.data;
-      window.localStorage.setItem("loggedBlogListUser", JSON.stringify(user));
-      blogsService.setToken(user.token);
+      window.localStorage.setItem("loggedUser", JSON.stringify(user));
       console.log("signup success");
-
-      window.localStorage.setItem("loggedUser", JSON.stringify(response.data));
 
       return response.data;
     }
@@ -32,16 +27,12 @@ const login = async (credentials) => {
     const response = await axios.post(baseUrl + "/login", credentials);
 
     const user = response.data;
-    window.localStorage.setItem("loggedBlogListUser", JSON.stringify(user));
-    blogsService.setToken(user.token);
+    window.localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log("login success");
-
-    window.localStorage.setItem("loggedUser", JSON.stringify(response.data));
 
     return response.data;
   } catch (error) {
     if (error.response) {
-      console.log(error.response.data);
       return error.response.data;
     }
   }
@@ -82,6 +73,10 @@ const getCurrUserId = () => {
   return JSON.parse(localStorage.getItem("loggedUser")).userId;
 };
 
+const getCurrUserName = () => {
+  return JSON.parse(localStorage.getItem("loggedUser")).name;
+};
+
 const logout = () => {
   localStorage.removeItem("loggedUser");
 };
@@ -93,6 +88,7 @@ const authService = {
   checkLogin,
   getAuthHeader,
   logout,
+  getCurrUserName,
   getCurrUserId,
 };
 

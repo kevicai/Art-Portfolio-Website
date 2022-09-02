@@ -10,21 +10,46 @@
   align-items: center;
 }
 
+.nav-link-container {
+  width: fit-content;
+  height: fit-content;
+  margin: 25px 0;
+}
+
 .nav-links {
   line-height: 25px;
   vertical-align: middle;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: light;
-  margin: 15px 0;
+  margin: 3px 0;
   color: rgb(122, 127, 197);
+  text-decoration: none;
+
+  transition: font-size 0.2s;
+}
+
+.nav-links:hover {
+  font-size: 18px;
+  color: rgb(219, 114, 114);
+}
+
+.sub-links-container {
+  margin-bottom: -48px;
+}
+
+.sub-nav-links {
+  text-align: start;
+  font-size: 13px;
+  font-weight: light;
+  color: rgb(131, 131, 131);
   text-decoration: none;
 
   transition: margin-left 0.1s;
 }
 
-.nav-links:hover {
-  margin-left: 10px;
-  color: rgb(219, 114, 114);
+.sub-nav-links:hover {
+  margin-left: 5px;
+  color: rgb(131, 131, 131);
 }
 
 .nav-login:hover {

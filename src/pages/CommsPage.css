@@ -1,24 +1,24 @@
 .request-section {
   margin: auto;
   overflow-y: scroll;
-  height: 80vh;
+  height: 77vh;
   margin-top: 30px;
 }
 
 ::-webkit-scrollbar {
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 10px 10px rgb(233, 233, 233);
-  border: solid 3px transparent;
+  border: 3px solid white;
 }
 
 ::-webkit-scrollbar-thumb {
   height: 10px;
-  background: #c1cae0;
+  background: #b0bcdb;
 }
 
 @media screen and (min-width: 1000px) {

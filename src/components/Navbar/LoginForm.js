@@ -14,13 +14,12 @@ const LoginForm = (props) => {
       password,
     });
     props.checkLogin();
-    if (response.error) {
+    if (response && response.error) {
       setErrorMessage(response.error);
       setTimeout(() => {
         setErrorMessage(null);
       }, 5000);
     } else {
-      console.log(1)
       setEmail("");
       setPassword("");
     }
@@ -36,7 +35,7 @@ const LoginForm = (props) => {
   return (
     <div className="login-form" style={props.marginLeft}>
       <form className="regular-font login-form-font" onSubmit={onSubmit}>
-        <div className="login-label">email</div>
+        <div className="login-label">Email</div>
         <input
           className="login-input"
           type="text"
@@ -44,7 +43,7 @@ const LoginForm = (props) => {
           name="Email"
           onChange={({ target }) => setEmail(target.value)}
         />
-        <div className="login-label">password</div>
+        <div className="login-label">Password</div>
         <input
           className="login-input"
           type="password"
@@ -54,7 +53,7 @@ const LoginForm = (props) => {
         />
         <div className="error-message">{errorMessage}</div>
         <button className="login-button" type="submit">
-          login
+          Login
         </button>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
 import OutsideClickHandler from "react-outside-click-handler";
 import "./Navbar.css";
@@ -21,7 +21,35 @@ export default function NavBar() {
   const [signupFormStyle, setSignupFormStyle] = useState({
     marginLeft: "-150px",
   });
+  const [showCommsSubMenu, setShowCommsSubMenu] = useState(false);
 
+  const { pathname, hash, key } = useLocation();
+
+  // handle path change
+  useEffect(() => {
+    if (pathname === "/comms") {
+      setShowCommsSubMenu(true);
+    } else {
+      setShowCommsSubMenu(false);
+    }
+
+    // if not a hash link, scroll to top
+    if (hash === "") {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]); // do this on route change
+
+  // check login
   useEffect(() => {
     setIsLogin(authService.checkLogin());
   }, []);
@@ -56,8 +84,6 @@ export default function NavBar() {
     setIsLogin(authService.checkLogin());
   };
 
-  // TODO: add outside menu click to close forms
-
   return (
     <nav className="navbar regular-font">
       {!isLogin ? (
@@ -89,17 +115,44 @@ export default function NavBar() {
           </OutsideClickHandler>
         </>
       ) : (
-        <Link className="nav-links" to="/user">
-          {" "}
+        <div className="nav-links">
           Welcome
-        </Link>
+          <div> {authService.getCurrUserName().slice(0, 10)}</div>
+        </div>
       )}
+
       {MenuItems.map((item, index) => (
-        <Link key={index} to={item.path} className={item.cName}>
-          {item.icon}
-          <div className="navlink-space"></div>
-          <span>{item.title}</span>
-        </Link>
+        <div
+          key={index}
+          className="nav-link-container"
+          onMouseEnter={() => {
+            item.subMenu && setShowCommsSubMenu(true);
+          }}
+          onMouseLeave={() => {
+            item.subMenu && pathname !== "/comms" && setShowCommsSubMenu(false);
+          }}
+        >
+          <Link to={item.path} className={item.cName}>
+            {item.icon}
+            <div className="navlink-space"></div>
+            <span>{item.title}</span>
+          </Link>
+          {item.subMenu && showCommsSubMenu && (
+            <div className="sub-links-container">
+              {item.subMenu.map((subItem, subIndex) => (
+                <div className="line-break" key={subIndex}>
+                  <Link
+                    key={subIndex}
+                    to={subItem.path}
+                    className={subItem.cName}
+                  >
+                    <span>{subItem.title}</span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       ))}
     </nav>
   );

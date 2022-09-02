@@ -36,7 +36,7 @@ const SignupForm = (props) => {
   return (
     <div className="login-form" style={props.marginLeft}>
       <form className="regular-font login-form-font" onSubmit={onSubmit}>
-        <div className="login-label">name</div>
+        <div className="login-label">Name</div>
         <input
           className="login-input"
           type="name"
@@ -44,7 +44,7 @@ const SignupForm = (props) => {
           name="Name"
           onChange={({ target }) => setName(target.value)}
         />
-        <div className="login-label">email</div>
+        <div className="login-label">Email</div>
         <input
           className="login-input"
           type="email"
@@ -52,7 +52,7 @@ const SignupForm = (props) => {
           name="Email"
           onChange={({ target }) => setEmail(target.value)}
         />
-        <div className="login-label">password</div>
+        <div className="login-label">Password</div>
         <input
           className="login-input"
           type="password"
@@ -62,7 +62,7 @@ const SignupForm = (props) => {
         />
         <div className="error-message">{errorMessage}</div>
         <button className="login-button" type="submit">
-          signup
+          Sign Up
         </button>
       </form>
     </div>

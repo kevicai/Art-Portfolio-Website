@@ -58,7 +58,10 @@ export default function RequestCard({ request }) {
         <div className="request-title">{request.type}</div>
         <div className="request-author">by {request.author}</div>
       </div>
-      <div className="request-content">{request.content}</div>
+      <div className="request-content">
+        {request.content.replace(/(\r\n|\n|\r)/gm, "")}
+      </div>{" "}
+      {/* request.content max 250 characters */}
       <a className="request-link" href={request.reference}>
         Additional References
       </a>
