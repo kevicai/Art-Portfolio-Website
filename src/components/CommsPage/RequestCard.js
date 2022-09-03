@@ -62,9 +62,11 @@ export default function RequestCard({ request }) {
         {request.content.replace(/(\r\n|\n|\r)/gm, "")}
       </div>{" "}
       {/* request.content max 250 characters */}
-      <a className="request-link" href={request.reference}>
-        Additional References
-      </a>
+      {request.reference !== "" && (
+        <a className="request-link" href={request.reference}>
+          Additional References
+        </a>
+      )}
     </div>
   );
 }

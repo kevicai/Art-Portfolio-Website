@@ -11,9 +11,11 @@ const getAll = async (queryParams) => {
 };
 
 const create = async (blogObject) => {
-  blogObject.user = authService.getCurrUserId();
-
-  const response = await axios.post(baseUrl, blogObject);
+  const response = await axios.post(
+    baseUrl,
+    blogObject,
+    authService.getAuthHeader()
+  );
   return response.data;
 };
 

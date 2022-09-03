@@ -21,6 +21,13 @@
   background: #b0bcdb;
 }
 
+.req-page-error-msg {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  font-size: 20px;
+  color: #ca7f85;
+}
+
 @media screen and (min-width: 1000px) {
   .request-section {
     margin-left: 130px;

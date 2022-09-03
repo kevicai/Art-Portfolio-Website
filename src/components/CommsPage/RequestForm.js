@@ -1,27 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./RequestForm.css";
 import authService from "../../services/authService";
 import { requestTypes } from "../../utils/constants";
+import blogsService from "../../services/blogsService";
 
 export default function RequestForm() {
-  const [radioSelected, setRadioSelected] = useState("");
+  const emptyRadioArray = new Array(requestTypes.length).fill(false);
+
+  const [radioValue, setRadioValue] = useState("");
+  const [radioChecked, setRadioChecked] = useState(emptyRadioArray);
   const [details, setDetails] = useState("");
   const [refLink, setRefLink] = useState("");
   const [loginError, setLoginError] = useState(false);
   const [typeError, settypeError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
-
-  const HandleRadioBtn = (event) => {
-    setRadioSelected(event.target.value);
-  };
-
-  const HandleDetailsChange = (event) => {
-    setDetails(event.target.value);
-  };
-
-  const HandleLinkChange = (event) => {
-    setRefLink(event.target.value);
-  };
 
   const HandleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +24,7 @@ export default function RequestForm() {
       return;
     }
 
-    const isTypeEmpty = radioSelected === "";
+    const isTypeEmpty = radioValue === "";
     const isDetailsEmpty = details === "";
     settypeError(isTypeEmpty);
     setDetailsError(isDetailsEmpty);
@@ -41,13 +33,33 @@ export default function RequestForm() {
       return;
     }
 
-    let formData = new FormData();
-    formData.append("author");
+    const newRequest = {
+      content: details,
+      type: radioValue,
+      reference: refLink,
+    };
+    blogsService.create(newRequest);
 
-    setRadioSelected("");
+    setRadioValue("");
     setDetails("");
     setRefLink("");
+    setRadioChecked(emptyRadioArray);
     console.log("submit");
+  };
+
+  const HandleRadioBtn = (event, index) => {
+    setRadioValue(event.target.value);
+    let newRadios = [...emptyRadioArray];
+    newRadios[index] = true;
+    setRadioChecked(newRadios);
+  };
+
+  const HandleDetailsChange = (event) => {
+    setDetails(event.target.value);
+  };
+
+  const HandleLinkChange = (event) => {
+    setRefLink(event.target.value);
   };
 
   return (
@@ -69,7 +81,7 @@ export default function RequestForm() {
               design or background
             </div>
             <div className="row">
-              {requestTypes.map((type) => (
+              {requestTypes.map((type, index) => (
                 <div
                   className="req-form-radio-group col-lg-4 col-md-6"
                   key={type.type}
@@ -80,7 +92,8 @@ export default function RequestForm() {
                     value={type.type}
                     id={type.type}
                     className="req-form-radio-btn"
-                    onChange={HandleRadioBtn}
+                    onChange={(event) => HandleRadioBtn(event, index)}
+                    checked={radioChecked[index]}
                   ></input>
                   <label htmlFor={type.type}>
                     {type.type}{" "}

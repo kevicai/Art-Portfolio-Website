@@ -9,7 +9,7 @@ blogsRouter.get("/", async (request, response) => {
       ? {}
       : JSON.parse(request.query.filterCond)
   )
-    .sort(request.query.sortCond)
+    .sort(JSON.parse(request.query.sortCond))
     .limit(request.query.numLimit)
     .populate("user", { email: 1, name: 1 }); // populate user ids into user objects
 
@@ -32,7 +32,7 @@ blogsRouter.get("/:id", async (request, response) => {
 
 blogsRouter.post("/", async (request, response) => {
   const body = request.body;
-  const user = request.user;
+  const user = request.user; // request.user extracted through middleware
 
   if (!(user && body)) {
     response.status(412).end();
@@ -40,7 +40,9 @@ blogsRouter.post("/", async (request, response) => {
 
   const blog = new Blog({
     ...body,
+    author: user.name,
     user: user.id,
+    created_at: new Date().toISOString(),
   });
 
   const savedBlog = await blog.save();
@@ -52,9 +54,9 @@ blogsRouter.post("/", async (request, response) => {
   response.status(201).json(savedBlog.toJSON);
 });
 
-blogsRouter.delete("/:id", async (request, response) => {
+blogsRouter.delete("/", async (request, response) => {
   const user = request.user;
-  const blogToDelete = await Blog.findById(request.params.id);
+  const blogToDelete = await Blog.findById(user.id);
   if (!blogToDelete) {
     return response.status(204).end();
   }
@@ -65,22 +67,23 @@ blogsRouter.delete("/:id", async (request, response) => {
     });
   }
 
-  await Blog.deleteOne({ _id: id });
+  await Blog.deleteOne({ _id: user.id });
 
-  user.blogs = user.blogs.filter((blog) => blog.toString() !== id);
+  user.blogs = user.blogs.filter((blog) => blog.toString() !== user.id);
   user.save();
   response.sendStatus(204).end();
 
-  await Blog.findByIdAndRemove(request.params.id);
+  await Blog.findByIdAndRemove(user.id);
 
   response.status(204).end();
 });
 
-blogsRouter.put("/:id", async (request, response) => {
+blogsRouter.put("/", async (request, response) => {
+  const user = request.user;
   const blog = request.body;
 
-  if (blog.user.toString() === request.user.id.toString()) {
-    const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, {
+  if (blog.user.toString() === user.id.toString()) {
+    const updatedBlog = await Blog.findByIdAndUpdate(user.id, blog, {
       new: true,
     }).populate("user", { email: 1, name: 1 });
 

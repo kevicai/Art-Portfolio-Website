@@ -37,7 +37,7 @@ export default function FilterBar(props) {
         />
         <Dropdown
           prompt={"Sort By"}
-          options={["Your Requests", "Date New", "Date Old"]}
+          options={["Your Requests", "Date Old"]}
           setItems={props.setCommSort}
         />
       </div>

@@ -42,7 +42,7 @@ const getAuthHeader = () => {
   const user = JSON.parse(localStorage.getItem("loggedUser"));
 
   if (user && user.token) {
-    return { Authorization: `bearer ${user.token}` };
+    return { headers: { Authorization: `bearer ${user.token}` } };
   } else {
     return {};
   }
@@ -69,10 +69,6 @@ const checkLogin = () => {
   }
 };
 
-const getCurrUserId = () => {
-  return JSON.parse(localStorage.getItem("loggedUser")).userId;
-};
-
 const getCurrUserName = () => {
   return JSON.parse(localStorage.getItem("loggedUser")).name;
 };
@@ -89,7 +85,6 @@ const authService = {
   getAuthHeader,
   logout,
   getCurrUserName,
-  getCurrUserId,
 };
 
 export default authService;
