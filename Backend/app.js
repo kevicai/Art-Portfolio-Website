@@ -24,13 +24,18 @@ mongoose
   });
 
 app.use(cors());
-// app.use(express.static('build'))
+
 app.use(express.json());
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
+
+if (config.NODE_ENV === "production") {
+  app.use(express.static("build"));
+}
+
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
 
