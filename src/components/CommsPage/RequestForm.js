@@ -45,6 +45,16 @@ export default function RequestForm() {
     setRefLink("");
     setRadioChecked(emptyRadioArray);
     console.log("submit");
+
+    // reload and scroll to all requests
+    window.location.reload(false);
+    setTimeout(() => {
+      const element = document.getElementById("all-requests");
+      console.log(element);
+      if (element) {
+        element.scrollIntoView();
+      }
+    }, [3000]);
   };
 
   const HandleRadioBtn = (event, index) => {

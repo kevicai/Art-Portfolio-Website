@@ -73,6 +73,10 @@ const getCurrUserName = () => {
   return JSON.parse(localStorage.getItem("loggedUser")).name;
 };
 
+const getCurrUserId = () => {
+  return JSON.parse(localStorage.getItem("loggedUser")).id;
+};
+
 const logout = () => {
   localStorage.removeItem("loggedUser");
 };
@@ -85,6 +89,7 @@ const authService = {
   getAuthHeader,
   logout,
   getCurrUserName,
+  getCurrUserId,
 };
 
 export default authService;

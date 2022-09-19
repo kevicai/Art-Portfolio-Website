@@ -22,14 +22,13 @@ const LoginForm = (props) => {
     } else {
       setEmail("");
       setPassword("");
+      window.location.reload(false);
     }
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     handleLogin(email, password);
-    setEmail("");
-    setPassword("");
   };
 
   return (

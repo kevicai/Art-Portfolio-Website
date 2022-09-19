@@ -11,7 +11,7 @@ blogsRouter.get("/", async (request, response) => {
   )
     .sort(JSON.parse(request.query.sortCond))
     .limit(request.query.numLimit)
-    .populate("user", { email: 1, name: 1 }); // populate user ids into user objects
+    .populate("user", { _id: 1, email: 1, name: 1 }); // populate user ids into user objects
 
   if (blogs) {
     response.json(blogs);
@@ -21,7 +21,11 @@ blogsRouter.get("/", async (request, response) => {
 });
 
 blogsRouter.get("/:id", async (request, response) => {
-  const blog = await Blog.findById(request.params.id);
+  const blog = await Blog.findById(request.params.id).populate("user", {
+    _id: 1,
+    email: 1,
+    name: 1,
+  });
 
   if (blog) {
     response.json(blog.toJSON());
@@ -54,9 +58,10 @@ blogsRouter.post("/", async (request, response) => {
   response.status(201).json(savedBlog.toJSON);
 });
 
-blogsRouter.delete("/", async (request, response) => {
+blogsRouter.delete("/:id", async (request, response) => {
   const user = request.user;
-  const blogToDelete = await Blog.findById(user.id);
+  const id = request.params.id;
+  const blogToDelete = await Blog.findById(id);
   if (!blogToDelete) {
     return response.status(204).end();
   }
@@ -67,15 +72,11 @@ blogsRouter.delete("/", async (request, response) => {
     });
   }
 
-  await Blog.deleteOne({ _id: user.id });
+  await Blog.findByIdAndRemove(id);
 
-  user.blogs = user.blogs.filter((blog) => blog.toString() !== user.id);
+  user.blogs = user.blogs.filter((blog) => blog.toString() !== id);
   user.save();
   response.sendStatus(204).end();
-
-  await Blog.findByIdAndRemove(user.id);
-
-  response.status(204).end();
 });
 
 blogsRouter.put("/", async (request, response) => {

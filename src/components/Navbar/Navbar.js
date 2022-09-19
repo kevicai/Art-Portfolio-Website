@@ -84,6 +84,10 @@ export default function NavBar() {
     setIsLogin(authService.checkLogin());
   };
 
+  const logOut = () => {
+    authService.logout();
+    checkLogin();
+  };
   return (
     <nav className="navbar regular-font">
       {!isLogin ? (
@@ -115,10 +119,15 @@ export default function NavBar() {
           </OutsideClickHandler>
         </>
       ) : (
-        <div className="nav-links">
-          Welcome
-          <div> {authService.getCurrUserName().slice(0, 10)}</div>
-        </div>
+        <>
+          <div className="nav-links">
+            Welcome,
+            <div> {authService.getCurrUserName().slice(0, 10)}</div>
+          </div>
+          <div className="logout-btn" onClick={logOut}>
+            Log Out
+          </div>
+        </>
       )}
 
       {MenuItems.map((item, index) => (

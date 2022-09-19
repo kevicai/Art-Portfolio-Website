@@ -87,6 +87,13 @@ export default function CommsPage() {
     }
   }, [searchInput, allRequests]);
 
+  const deleteRequest = (requestId) => {
+    if (window.confirm("Do you want to delete this request?")) {
+      blogsService.remove(requestId);
+      setAllRequests(allRequests.filter((req) => req.id !== requestId));
+    }
+  };
+
   return (
     <div>
       <div id="all-requests">
@@ -106,7 +113,7 @@ export default function CommsPage() {
           <Row>
             {requests.map((request, index) => (
               <Col xs={12} md={6} lg={5} xl={4} xxl={3} key={index}>
-                <RequestCard request={request} />
+                <RequestCard request={request} deleteRequest={deleteRequest} />
               </Col>
             ))}
           </Row>

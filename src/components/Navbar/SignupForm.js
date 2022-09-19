@@ -25,6 +25,7 @@ const SignupForm = (props) => {
     else{
       setEmail("");
       setPassword("");
+      window.location.reload(false);
     }
   };
 

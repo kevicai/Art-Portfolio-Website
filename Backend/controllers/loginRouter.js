@@ -30,7 +30,9 @@ loginRouter.post("/login", async (request, response) => {
     id: user._id,
   });
 
-  response.status(200).send({ token, email: user.email, name: user.name });
+  response
+    .status(200)
+    .send({ token, email: user.email, name: user.name, id: user._id });
 });
 
 loginRouter.post("/signup", async (request, response) => {
@@ -74,7 +76,9 @@ loginRouter.post("/signup", async (request, response) => {
     id: user._id,
   });
 
-  response.status(201).json({ token, email: user.email, name: user.name });
+  response
+    .status(201)
+    .json({ token, email: user.email, name: user.name, id: user._id });
 });
 
 module.exports = loginRouter;

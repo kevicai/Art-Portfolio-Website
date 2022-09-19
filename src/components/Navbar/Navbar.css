@@ -52,6 +52,22 @@
   color: rgb(131, 131, 131);
 }
 
+.logout-btn {
+  text-align: start;
+  font-size: 13px;
+  font-weight: light;
+  color: rgb(131, 131, 131);
+  text-decoration: none;
+
+  transition: margin-left 0.1s;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+  margin-left: 5px;
+  color: rgb(131, 131, 131);
+}
+
 .nav-login:hover {
   cursor: pointer;
 }

@@ -36,11 +36,19 @@ const remove = async (id) => {
   return response.data;
 };
 
+const isOwner = (blogUserId) => {
+  if (!authService.checkLogin()) {
+    return false;
+  }
+  return blogUserId === authService.getCurrUserId();
+};
+
 const blogsService = {
   getAll,
   create,
   update,
   remove,
+  isOwner,
 };
 
 export default blogsService;

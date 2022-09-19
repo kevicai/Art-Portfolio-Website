@@ -55,3 +55,28 @@
   color: #8598ff;
   font-size: 13px;
 }
+
+.request-delete-btn {
+  position: relative;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 3px 3px 3px;
+  border: 1px solid rgb(202, 124, 124);
+  transition: background-color 0.2s;
+  color: rgb(202, 124, 124);
+}
+
+.request-delete-btn:hover {
+  cursor: pointer;
+  background-color: rgb(202, 124, 124);
+  color: rgb(245, 229, 229);
+}
+
+.request-delete-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}

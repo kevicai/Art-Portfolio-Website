@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./RequestCard.css";
+import { AiTwotoneDelete } from "react-icons/ai";
+import blogsService from "../../services/blogsService";
 
-export default function RequestCard({ request }) {
+export default function RequestCard({ request, deleteRequest }) {
   const [stageColor, setStageColor] = useState("");
   const [typeBg, setTypeBg] = useState("");
   const [stageTxt, setStageTxt] = useState("");
@@ -66,6 +68,16 @@ export default function RequestCard({ request }) {
         <a className="request-link" href={request.reference}>
           Additional References
         </a>
+      )}
+      {blogsService.isOwner(request.user.id) && (
+        <div
+          className="request-delete-btn"
+          onClick={() => {
+            deleteRequest(request.id);
+          }}
+        >
+          <AiTwotoneDelete className="request-delete-icon" />
+        </div>
       )}
     </div>
   );
