@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/art/static/css/main.edfb10f1.css",
-    "main.js": "/art/static/js/main.bcbe9ae1.js",
-    "static/media/landing-cover.png": "/art/static/media/landing-cover.eea11d2cb858a39e6a9b.png",
-    "static/media/comm2.png": "/art/static/media/comm2.336c5515cf3e49949d05.png",
-    "static/media/work1.png": "/art/static/media/work1.a3950457740c2472bae8.png",
-    "static/media/comm1.png": "/art/static/media/comm1.db06ac641615867c42e7.png",
-    "static/media/work2.png": "/art/static/media/work2.9f530ef576a71043a9b2.png",
-    "static/media/profile-pic.png": "/art/static/media/profile-pic.0d969daeb73b82978908.png",
-    "static/media/name-header.svg": "/art/static/media/name-header.daa067f5dc1564c2443c.svg",
-    "index.html": "/art/index.html",
-    "static/media/dropdown-close.svg": "/art/static/media/dropdown-close.579bf2d8045c7e39643ecfbb924e5a8d.svg",
-    "static/media/dropdown-open.svg": "/art/static/media/dropdown-open.4b3d5d8c4ee5ce0d6dbdc3c0927ac27b.svg",
-    "main.edfb10f1.css.map": "/art/static/css/main.edfb10f1.css.map",
-    "main.bcbe9ae1.js.map": "/art/static/js/main.bcbe9ae1.js.map"
+    "main.css": "/static/css/main.d02b0232.css",
+    "main.js": "/static/js/main.4aa03dc9.js",
+    "static/media/landing-cover.png": "/static/media/landing-cover.eea11d2cb858a39e6a9b.png",
+    "static/media/comm2.png": "/static/media/comm2.336c5515cf3e49949d05.png",
+    "static/media/work1.png": "/static/media/work1.a3950457740c2472bae8.png",
+    "static/media/comm1.png": "/static/media/comm1.db06ac641615867c42e7.png",
+    "static/media/work2.png": "/static/media/work2.9f530ef576a71043a9b2.png",
+    "static/media/profile-pic.png": "/static/media/profile-pic.0d969daeb73b82978908.png",
+    "static/media/name-header.svg": "/static/media/name-header.daa067f5dc1564c2443c.svg",
+    "index.html": "/index.html",
+    "static/media/dropdown-close.svg": "/static/media/dropdown-close.579bf2d8045c7e39643ecfbb924e5a8d.svg",
+    "static/media/dropdown-open.svg": "/static/media/dropdown-open.4b3d5d8c4ee5ce0d6dbdc3c0927ac27b.svg",
+    "static/media/filter-bar-background.svg": "/static/media/filter-bar-background.658d6bcd1bddbda2cdfe8ab2fd7fbed7.svg",
+    "main.d02b0232.css.map": "/static/css/main.d02b0232.css.map",
+    "main.4aa03dc9.js.map": "/static/js/main.4aa03dc9.js.map"
   },
   "entrypoints": [
-    "static/css/main.edfb10f1.css",
-    "static/js/main.bcbe9ae1.js"
+    "static/css/main.d02b0232.css",
+    "static/js/main.4aa03dc9.js"
   ]
 }
