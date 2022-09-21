@@ -26,7 +26,7 @@ class LandingPage extends Component {
           aboutTexts={
             "Hi I'm Cakee/Kevin. I'm a computer science student who draws for fun"
           }
-          contacts={"cakeeiv@gmail.com\nDiscord: cakee#6779"}
+          contacts={"cai2kev@gmail.com\nDiscord: cakee#6779"}
         />
 
         <div className="artworks-section">
