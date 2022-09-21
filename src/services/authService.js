@@ -1,7 +1,8 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { apiUrl } from "../utils/deploymentUrl";
 
-const baseUrl = "/api";
+const baseUrl = apiUrl;
 
 const signup = async (credentials) => {
   try {

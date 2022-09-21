@@ -1,7 +1,8 @@
 import axios from "axios";
 import authService from "./authService";
+import { apiUrl } from "../utils/deploymentUrl";
 
-const baseUrl = "/api/users";
+const baseUrl = apiUrl + "/users";
 
 const getCurrUserBlogs = async () => {
   if (authService.checkLogin()) {

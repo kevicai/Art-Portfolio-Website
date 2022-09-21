@@ -1,7 +1,8 @@
 import axios from "axios";
 import authService from "./authService";
+import { apiUrl } from "../utils/deploymentUrl";
 
-const baseUrl = "/api/blogs";
+const baseUrl = apiUrl + "/blogs";
 
 const getAll = async (queryParams) => {
   const request = await axios.get(baseUrl, {
