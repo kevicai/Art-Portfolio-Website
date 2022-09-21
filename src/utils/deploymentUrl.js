@@ -1,5 +1,5 @@
 // for heroku backend depolyment
-export const apiUrl = "https://art-s.herokuapp.com/api"
+export const apiUrl = "api"
 
 // for github pages frontend deployment
 export const websiteUrlPrefix = ""

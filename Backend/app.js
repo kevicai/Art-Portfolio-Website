@@ -3,7 +3,6 @@ const express = require("express");
 // eliminates the need for try catch for async errors
 require("express-async-errors");
 const app = express();
-const path = require('path')
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const middleware = require("./utils/middleware");
@@ -38,9 +37,6 @@ app.use(
 // }
 app.use(express.static("build"));
 // handle every other route with index.html, which will contain
-app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
 
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
