@@ -1,6 +1,12 @@
-![site logo](https://user-images.githubusercontent.com/74110291/193707428-a3a332da-369b-478f-9186-5aa536af599f.png)
-## A portfolio website to display my artworks
-[Link to the website](https://art-cakee.netlify.app/)
+<div align="center"><h1 style="margin-bottom:0">Art Portfolio Website</h1></div>
+
+<p align="center">
+  <img src="./public/site_logo.png" alt="Sapiens-Delivery-logo" width="120px" height="120px"/>
+  <br>
+  <a href="https://art-cakee.netlify.app/"> A portfolio website to display my artworks and receive commission requests.</a>
+  <br>
+</p>
+<hr>
 
 ### Landing Page
 ![Screenshot 2022-10-03 200333](https://user-images.githubusercontent.com/74110291/193707026-a6c7427e-e8fd-453f-9692-813d1baa72dd.png)
