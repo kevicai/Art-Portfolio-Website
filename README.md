@@ -3,7 +3,8 @@
 <p align="center">
   <img src="./public/site_logo.png" alt="Sapiens-Delivery-logo" width="120px" height="120px"/>
   <br>
-  <a href="https://art-cakee.netlify.app/"> A portfolio website to display my artworks and receive commission requests.</a>
+  <i>A portfolio website to display my artworks and receive commission requests.</i>
+  <a href="https://art-cakee.netlify.app/">Link to the website.</a>
   <br>
 </p>
 <hr>
