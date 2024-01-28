@@ -5,7 +5,8 @@
   <br>
   <i>A portfolio website to display my artworks and receive commission requests.</i>
   <br>
-  <a href="https://art-cakee.netlify.app/">Link to the website.</a> (no longer deployed since Heroku is not free anymore :<)
+  <p>No longer maintained since previous deployment option isn't free anymore :<</p>
+  <a href="https://art-cakee.netlify.app/">Link to the website.</a> 
   <br>
 </p>
 <hr>
