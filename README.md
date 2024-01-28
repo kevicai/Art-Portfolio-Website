@@ -1,14 +1,14 @@
 <div align="center"><h1 style="margin-bottom:0">Art Portfolio Website</h1></div>
 
-<div style="display:flex; justify-content: center; align-items: center">
+<p align="center">
   <img src="./public/site_logo.png" alt="Sapiens-Delivery-logo" width="120px" height="120px"/>
   <br>
   <i>A portfolio website to display my artwork and receive commission requests.</i>
   <br>
-  <p>No longer maintained since the previous deployment option isn't free anymore :<</p>
+  No longer maintained since the previous deployment option isn't free anymore :<
   <a href="https://art-cakee.netlify.app/">Link to the website.</a> 
   <br>
-</div>
+</p>
 <hr>
 
 ### Landing Page
