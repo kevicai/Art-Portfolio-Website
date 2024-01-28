@@ -1,6 +1,6 @@
 <div align="center"><h1 style="margin-bottom:0">Art Portfolio Website</h1></div>
 
-<div style="display:flex; justify-content: center;">
+<div style="display:flex; justify-content: center; align-items: center">
   <img src="./public/site_logo.png" alt="Sapiens-Delivery-logo" width="120px" height="120px"/>
   <br>
   <i>A portfolio website to display my artwork and receive commission requests.</i>
