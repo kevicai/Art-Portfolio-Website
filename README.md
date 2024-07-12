@@ -5,7 +5,7 @@
   <br>
   <i>A portfolio website to display my artwork and receive commission requests.</i>
   <br>
-  No longer maintained since the previous deployment option isn't free anymore :<
+  Backend hasn't been redeployed after the previous deployment option Heroku removed its free tier :<
   <a href="https://art-cakee.netlify.app/">Link to the website.</a> 
   <br>
 </p>
